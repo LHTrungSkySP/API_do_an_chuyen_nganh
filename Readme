@@ -1,3 +1,13 @@
-Train module phân loại văn bản và ứng dụng nó trong phân loại bài báo 
+Train module phân loại văn bản và ứng dụng nó trong phân loại bài báo (10 thể loại)
+Chinh tri Xa hoi
+Doi song	
+Khoa hoc	
+Kinh doanh
+Phap luat
+Suc khoe
+The gioi
+The thao
+Van hoa 
+Vi tinh	
 - Server_code ( chỉ sử dụng khi đã train thành công module AI): 1 API post phân loại văn bản được gửi đến
 - Train_module_code: train module AI phân loại báo
