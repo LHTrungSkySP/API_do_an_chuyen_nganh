@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <button onclick="get_tac_gia()">lấy tác giả</button>
+        <button onclick="get_ds_moi_nhat()">lấy bài báo mới nhất</button>
+        <input type="text" id="phanloai_txt" onchange="phanLoaiInput()">
+        <button onclick="get_ds_phan_loai()">lấy theo phân loại ở input</button>
+        <form action="http://127.0.0.1:5000/classify" method="post">
+            <input type="text" name="test" id="content_classify">
+            <button type="submit">Phân loại văn bản trong TextArea</button>
+        </form>
+    </div>
+    <div id="result">
+
+    </div>
+
+</body>
+</html>
+<script>
+var phanloai="";
+function phanLoaiInput(){
+    phanloai = document.getElementById("phanloai_txt").value
+}
+function get_tac_gia(){
+        // let id;
+        $.ajax({
+            type: "GET",
+            url: "http://127.0.0.1:5000/",
+            success: function (res) {
+                a=JSON.parse(res)
+                console.log(a)
+                returnResult(res)
+            },
+            error: function (res) {
+                switch (res.status) {
+                    case 500:
+                        alert(res.responseJSON.userMsg);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+}
+function get_ds_moi_nhat(){
+        // let id;
+        $.ajax({
+            type: "GET",
+            url: "http://127.0.0.1:5000/bai_bao/new",
+            success: function (res) {
+                a=JSON.parse(res)
+                console.log(res)
+                returnResult(res)
+            },
+            error: function (res) {
+                switch (res.status) {
+                    case 500:
+                        alert(res.responseJSON.userMsg);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+}
+
+function get_ds_phan_loai(){
+            // let id;
+            $.ajax({
+            type: "GET",
+            url: "http://127.0.0.1:5000/bai_bao/"+phanloai,
+            success: function (res) {
+                a=JSON.parse(res)
+                console.log(res)
+                console.log(typeof(res))
+                returnResult(res)
+            },
+            error: function (res) {
+                switch (res.status) {
+                    case 500:
+                        alert(res.responseJSON.userMsg);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+}
+function returnResult(result){    
+    $("#result").empty();
+    $("#result").append(result);
+}
+</script>

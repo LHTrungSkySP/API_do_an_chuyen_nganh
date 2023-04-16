@@ -1,0 +1,6 @@
+- thư mục assets chứa dữ liệu train và test cùng stopword
+- module chứa code train mô hình, trong đó các file %test đều dùng cho mục đich test (bạn có thể không quan tâm đến nó)
+- để train 1 module AI phục vụ việc phân loại báo, bạn cần chạy trainModule.py
+- sau đó 1 file AI.pkl (mô hình được tạo ra), svd + tfidf (phục vụ việc xử lý dữ liệu đầu vào) sẽ được tạo ra.
+- Khi này mới sử dụng 2 file test để kiểm tra đã thành công chưa
+- đầu vào của chương trình là 1 text, đầu ra sẽ là phân loại hoặc % phân loại ( có 10 phân loại )
