@@ -1,0 +1,3 @@
+Train module phân loại văn bản và ứng dụng nó trong phân loại bài báo 
+- Server_code ( chỉ sử dụng khi đã train thành công module AI): 1 API post phân loại văn bản được gửi đến
+- Train_module_code: train module AI phân loại báo
